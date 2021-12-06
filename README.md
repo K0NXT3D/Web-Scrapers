@@ -11,5 +11,10 @@ General variations to the "bot" itself and how I use them on my end.
 Using Chron is the best way if you're able to proxychains your IP address.
 I only suggest that because these can get you blacklisted.
 
-BashKat
-BashKat.bot
+Normally I don't even run the filenames and I have them in their own folders as "bot"
+chmod +x and run ./bot.
+I have the multi-bot launcher of course, I'm sure it's around here somewhere?
+
+Dir BashKat/
+     ./bot
+Pretty Simple, Have fun making it your own.
