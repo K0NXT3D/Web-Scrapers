@@ -1,7 +1,7 @@
 # web-scrapers
 Web Scraping Scripts in PhP and Bash
 
-<h4>rrorBot - Paparazzi - BashKat</h4>
+<h4>TerrorBot - Paparazzi - BashKat</h4>
 
 These are all nice and simple, easy on the processor and server loads.
 These worked great with proxychains, so if you're still using that..
