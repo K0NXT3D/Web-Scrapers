@@ -1,0 +1,36 @@
+#!/usr/bin/env bash
+####################################################
+#                                                  #
+#    TerrorBot 2.0 (Lightweight) - R. Seaverns     #
+# ips.txt is a list of IP's for TerrorBot to scan. #
+#           Usage: chmod +x -> ./tbot              #
+#      Screenshot API: https://browshot.com/       #
+#                                                  #
+####################################################
+clear
+printf "TerrorBot 2.0 (Lightweight) - R. Seaverns\n\nBoutta Be Ripping Some Shit Up In.."
+sleep 2
+clear
+mkdir -p ./output
+mkdir -p ./output/screenshots/
+mkdir -p ./output/html/
+date="$(date)"
+urls="input.txt"
+  while read url
+   do
+     curl -s -m 12 -L "https://api.browshot.com/api/v1/simple?url=$url/&key=YOUR-API-GOES-HERE" -o ./output/screenshots/$url.png
+   done < $urls
+    echo -e '<head>\n <title>☢ TerrorBot Scan Gallery ☢</title>\n</head>\n<body style="background-color: #000; text-transform: uppercase;">' >> "./output/$date.html"
+    echo -e ' <div align="center" style="background-color: #0c0c0c; color: #990000; max-width: 550px; margin: auto; border: 4px solid #990000; border-radius: 12px; box-shadow: 0px 0px 8px #000 inset; padding-bottom:30px;">' >> "./output/$date.html"
+    echo -e '  <h1 padding-top: 10px;"><a style="color: Gold !important;">☢</a> <a style="text-shadow: 1px 1px 2px #000;">TerrorBot Scan Gallery </a><a style="color: Gold !important;">☢</a></h1><hr style="border-color: #990000; box-shadow: 0px 0px 8px #000;">' >> "./output/$date.html"
+while read url
+   do
+    echo -e '  <h2 style="text-shadow: 1px 1px 2px #000;">'$url'</h2><a href="http://'$url'" target="_blank"><img style="margin-bottom: 15px; border:2px solid #990000; border-radius: 8px;" src='screenshots/$url.png' height="300px" width="500px"></a><hr style="border-color: #990000; box-shadow: 0px 0px 8px #000;">' >> "./output/$date.html"
+done < $urls
+    echo -e ' </div>\n</body>' >> "./output/$date.html"
+while read url
+   do
+     curl -s -m 6.66 -A "Brozilla/5.0 (X11; Linux x86_64; rv:60.0) Whacko/20100101 Firehose/60.0" -o ./output/html/$url.html $url
+   done < $urls
+xdg-open ./output
+exit
