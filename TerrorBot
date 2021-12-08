@@ -32,6 +32,7 @@ wget -P scrapes/ \
      --adjust-extension \
      --domains www.$URL \
      --no-parent \
+     --wait=2 \
          www.$URL
 done
 
