@@ -9,8 +9,6 @@
 
 # CONFIGURATION:
 URLS="urls.txt" # Format some.com ( No http / www )
-UA="TerrorBot/1.0 (TerrorBot 1.0 +http://www.terror.bot/)"
-REFER="http://www.terror.bot"
 mkdir -p scrapes
 
 clear
