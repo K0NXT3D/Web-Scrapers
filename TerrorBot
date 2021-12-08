@@ -29,6 +29,7 @@ wget -P scrapes/ \
      --page-requisites \
      --convert-links \
      --restrict-file-names=windows \
+     --adjust-extension \
      --domains www.$URL \
      --no-parent \
          www.$URL
