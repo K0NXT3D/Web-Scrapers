@@ -1,0 +1,29 @@
+#!/bin/bash
+# H0zTyL - R. Seaverns - K0NXT3D - 2021
+# Random User Agent
+# Use With Proxychains
+urlfile='urls.txt'
+uafile='user-agents.txt'
+domfile='random-domains.txt'
+agent=$(shuf -n 1 $uafile)
+domain=$(shuf -n 1 $domfile)
+
+
+cat $urlfile | while read URL; do
+wget -P BotFiles/ \
+     -rkp -e robots=off \
+     --header="Accept: text/html" \
+     --user-agent="$agent" \
+     --referer="$domain" \
+     --mirror \
+     -l 0 \
+     --page-requisites \
+     --restrict-file-names=windows \
+     --adjust-extension \
+     --domains www.$URL \
+     --no-parent \
+     --wait=0 \
+         www.$URL
+done
+rm -r BotFiles
+./$(basename $0) && exit
