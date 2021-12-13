@@ -1,0 +1,86 @@
+#!/usr/bin/env bash
+# BashKat Version 1.0.2
+# R. Seaverns - K0NXT3D
+
+# Variables
+BotOptions="Url File Quit"
+
+# Welcome Banner
+clear
+printf "✨ BashKat 1.0 ✨\nScrape Single URL/IP or Multiple From File.\n\n" && sleep 1
+
+# Bot Options Menu
+select option in $BotOptions; do
+
+# Single URL Scrape
+   if [ "$option" = "Url" ];
+    then
+      printf "URL To Scrape: "
+       read scrapeurl
+     mkdir -p data/
+    wget -P data/ \
+     -4 \
+     -w 0 \
+     -t 3 \
+     -rkpN -e robots=off \
+     --header="Accept: text/html" \
+     --user-agent="BashKat/1.0 (BashKat 1.0 Web Scraper Utility +http://www.bashkat.bot/)" \
+     --referer="http://www.bashkat.bot" \
+     --random-wait \
+     --recursive \
+     --no-clobber \
+     --page-requisites \
+     --convert-links \
+     --restrict-file-names=windows \
+     --domains $scrapeurl \
+     --no-parent \
+         $scrapeurl
+
+      printf "🏁Scrape Complete.\nHit Enter To Continue.👍"
+       read anykey
+./$(basename $0) && exit
+
+  elif [ "$option" = "File" ];
+   then
+      printf "Path To File: "
+       read filepath
+     while IFS= read -r scrapeurl
+      do
+     mkdir -p data/
+    wget -P data/ \
+     -4 \
+     -w 0 \
+     -t 3 \
+     -rkpN -e robots=off \
+     --header="Accept: text/html" \
+     --user-agent="BashKat/1.0 (BashKat 1.0 Web Scraper Utility +http://www.bashkat.bot/)" \
+     --referer="http://www.bashkat.bot" \
+     --random-wait \
+     --recursive \
+     --no-clobber \
+     --page-requisites \
+     --convert-links \
+     --restrict-file-names=windows \
+     --domains $scrapeurl \
+     --no-parent \
+         $scrapeurl 
+     done < "$filepath"
+      printf "🏁Scrape Complete.\nHit Enter To Continue.👍"
+       read anykey
+./$(basename $0) && exit
+
+ elif [ "$option" = "Quit" ];
+ then
+   printf "Quitting🏳"
+    sleep 1
+     clear
+      exit
+# ERRORS
+  else
+   clear
+    printf "❌"
+    sleep 1
+   bash ./bot
+  fi
+ exit
+done
