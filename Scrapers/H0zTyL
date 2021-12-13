@@ -1,0 +1,33 @@
+#!/bin/bash
+# H0zTyL V1.0.2 - R. Seaverns - K0NXT3D - 2021
+# Random User Agent - Yes.
+# Random Domain - Still sending tor-exit.
+# Use With Proxychains - Slower, But Random Good.
+urlfile='urls.txt'
+uafile='user-agents.txt'
+domfile='random-domains.txt'
+agent=$(shuf -n 1 $uafile)
+domain=$(shuf -n 1 $domfile)
+
+# Delete After = Keep Nothing, Just Download It and Delete It.
+cat $urlfile | while read URL; do
+wget -P BotFiles/ \
+     -rkp -e robots=off \
+     --header="Accept: text/html" \
+     --user-agent="$agent" \
+     --referer="$domain" \
+     --mirror \
+     -l 0 \
+     --page-requisites \
+     --restrict-file-names=windows \
+     --adjust-extension \
+     --domains www.$URL \
+     --no-parent \
+     --wait=0 \
+     --delete-after \
+         www.$URL
+done
+ rm -r BotFiles
+# sleep 6h 6m 5s
+# ./$(basename $0) && exit
+# Comment Out Above As Needed - Default Remove All Files & Folders
