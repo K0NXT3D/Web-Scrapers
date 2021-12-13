@@ -10,6 +10,9 @@ The code for each is really the same.
 General variations to the "bot" itself and how I use them on my end.
 Using Cron is the best way if you're able to proxychains your IP address.
 I only suggest that because these can get you blacklisted.
+Other options include sleep 6h6m5s etc, BUT... it helps to strart a completely
+new instance of the bot and refresh your IP/Browser and I'll be working on the domain spoofing.
+It's probably right in front of me.
 
 Normally I don't even run the filenames and I have them in their own folders as "bot"
 chmod +x and run ./bot.
