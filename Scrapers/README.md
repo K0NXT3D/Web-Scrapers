@@ -1,4 +1,4 @@
-<strong>These are "Cores".</strong>
+<strong>These are "Cores"</strong>
 <p>I write each one on an <em>"as needed"</em> basis, so each has a different purpose or use.<p>
 
 <strong>BaskKat</strong> is a CLI Web Scraper with options between entering a single url or a file with multiple urls, one per line.<br>
