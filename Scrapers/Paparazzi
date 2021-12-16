@@ -1,0 +1,53 @@
+#!/usr/bin/env bash
+
+# Variables
+BotOptions="Url File Quit"
+
+# Welcome Banner - Create Directories
+mkdir -p ./images
+clear
+printf "Paparazzi 1.0 - R. Seaverns\n"
+sleep 1
+
+# Bot Options Menu
+select option in $BotOptions; do
+
+# Single URL/IP Scan
+   if [ "$option" = "Url" ];
+    then
+      printf "IP/URL To ScreenShot: "
+       read url
+      curl -L "https://api.browshot.com/api/v1/simple?url=$url&key=BROWSHOT-API-GOES-HERE" -o ./images/$url.png
+      printf "Finished Scanning.\nHit Enter To Continue.."
+       read anykey
+./bot
+
+# Multiple URL/IP Scan
+  elif [ "$option" = "File" ];
+   then
+      printf "Path To File: "
+       read filepath
+     while IFS= read -r url
+      do
+          curl -L "https://api.browshot.com/api/v1/simple?url=$url&key=BROWSHOT-API-GOES-HERE" -o ./images/$url.png 
+     done < "$filepath"
+      printf "Finished.\nHit Enter To Continue.."
+       read anykey
+./bot
+
+# Quitter!!!
+ elif [ "$option" = "Quit" ];
+ then
+   printf "Quitting!"
+    sleep 1
+     clear
+      exit
+# ERRORS
+  else
+   clear
+    printf "<Invalid Option>"
+    sleep 1
+   bash ./bot
+  fi
+ exit
+done
