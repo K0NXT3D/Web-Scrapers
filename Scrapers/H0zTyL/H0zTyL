@@ -11,7 +11,7 @@ uafile='files/user-agents.txt'
 domfile='files/random-domains.txt'
 agent=$(shuf -n 1 $uafile)
 domain=$(shuf -n 1 $domfile)
-art='files/banner'
+art='files/banner.txt'
 
 input=$art
 while IFS= read -r line
