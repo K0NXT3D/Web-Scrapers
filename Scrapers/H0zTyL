@@ -1,17 +1,28 @@
-#!/bin/bash
-# H0zTyL V1.0.2 - R. Seaverns - K0NXT3D - 2021
-# Random User Agent - Yes.
-# Random Domain - Still sending tor-exit.
-# Use With Proxychains - Slower, But Random Good.
-urlfile='urls.txt'
-uafile='user-agents.txt'
-domfile='random-domains.txt'
+#!/bin/bash 
+#######################################################################################
+# H0zTyL - R. Seaverns - K0NXT3D - 2021                                               #
+# Random User Agent Enabled                                                           #
+# Use With Proxychains                                                                #                            
+#     --delete-after \ Will Delete all files automatically and save local file space. #
+#     --mirror \ Will Download the entire site (Default)                              #
+#######################################################################################
+urlfile='files/urls.txt'
+uafile='files/user-agents.txt'
+domfile='files/random-domains.txt'
 agent=$(shuf -n 1 $uafile)
 domain=$(shuf -n 1 $domfile)
+art='banner.txt'
 
-# Delete After = Keep Nothing, Just Download It and Delete It.
+input=$art
+while IFS= read -r line
+do
+  echo "$line"
+done < "$input"
+sleep 2
+mkdir BotFiles
 cat $urlfile | while read URL; do
-wget -P BotFiles/ \
+proxychains='bash proxychains'
+$proxychains wget -P BotFiles/ \
      -rkp -e robots=off \
      --header="Accept: text/html" \
      --user-agent="$agent" \
@@ -24,10 +35,11 @@ wget -P BotFiles/ \
      --domains www.$URL \
      --no-parent \
      --wait=0 \
-     --delete-after \
          www.$URL
 done
- rm -r BotFiles
-# sleep 6h 6m 5s
-# ./$(basename $0) && exit
-# Comment Out Above As Needed - Default Remove All Files & Folders
+rm -r BotFiles
+
+# Finsh and Exit
+exit
+# Loop Infinitely
+#./$(basename $0) && exit
