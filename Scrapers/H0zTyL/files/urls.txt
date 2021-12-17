@@ -1,0 +1,3 @@
+some.com
+another.com
+my.com
