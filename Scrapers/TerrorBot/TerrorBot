@@ -1,0 +1,41 @@
+#!/usr/bin/env bash
+# TerrorBot - Version 1.2.1 - R. Seaverns (K0NxT3D)
+# Web Scraping Script
+#
+# Create File: urls.txt
+# enter one url per line as such: mysite.com
+# DO NOT USE http:// ONLY THE DOMAIN!!
+# Do Not Leave Blank Lines (Maybe I'll adjust that later.
+
+# CONFIGURATION:
+URLS="urls.txt" # Format some.com ( No http / www )
+mkdir -p scrapes
+
+clear
+echo 'TerrorBot Information Gathering Tool V1.0.0'
+echo 'By: KoNxT3D'
+read -rsp $'Hit Any Key To Unleash The Bot!' -n1 key
+clear
+
+cat $URLS | while read URL; do
+
+wget -P scrapes/ \
+     -rkpN -e robots=off \
+     --header="Accept: text/html" \
+     --user-agent="TerrorBot/1.0 (TerrorBot 1.0 +http://www.terror.bot/)" \
+     --referer="http://www.terror.bot" \
+     --recursive \
+     --no-clobber \
+     --page-requisites \
+     --convert-links \
+     --restrict-file-names=windows \
+     --adjust-extension \
+     --domains www.$URL \
+     --no-parent \
+     --wait=2 \
+         www.$URL
+done
+
+clear
+echo 'TerrorBot Has Finished Terrorizing!'
+echo 'Thank You Come Again.'
