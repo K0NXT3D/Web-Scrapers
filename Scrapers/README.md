@@ -8,3 +8,5 @@
 <h2>BotKannon 1.0.1</h2>
 <p>BotKannon is a "MultiThread Launcher" that can launch a bot file ~n times.<br>
 Designed for use with H0zTyL, but can be used with TerrorBot using urls.txt</p>
+
+<p> * See Input Files Directory </p>
