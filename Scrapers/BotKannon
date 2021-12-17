@@ -1,0 +1,42 @@
+#!/bin/bash
+# BotKannon - R. Seaverns 2021
+#
+# Options:
+#   mate-terminal -e ./file.sh
+#   mate-terminal --tab -e ./file.sh --tab -e ./file.sh
+#   gnome-terminal -x ./file.sh
+#   xterm -e ./file.sh
+#
+clear
+art='banner.txt'
+input=$art
+while IFS= read -r line
+do
+  echo "$line"
+done < "$input"
+sleep 3
+clear
+read -p "Load Kannon? (y/n) " -n 1
+echo
+    if [[ $REPLY =~ ^[Yy]$ ]]; then         
+    clear
+     echo -e "Loading The BotKannon!"
+      echo -e "Path To Bot:"
+    read botfile
+echo -e "Threads:"
+    read threads
+
+for i in `seq 1 $threads`;
+  do
+    echo -e '⋖|-+-|⋗ Launching' $threads 'Bots ⋖|-+-|⋗'
+    sleep 2
+    clear
+    mate-terminal --tab -e ./$botfile
+sleep 2
+  done 
+
+./$(basename $0) && exit
+
+fi
+clear
+exit
