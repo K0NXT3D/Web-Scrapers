@@ -8,7 +8,7 @@
 # Do Not Leave Blank Lines (Maybe I'll adjust that later.
 
 # CONFIGURATION:
-URLS="urls.txt" # Format some.com ( No http / www )
+URLS="files/urls.txt" # Format some.com ( No http / www )
 mkdir -p scrapes
 
 clear
