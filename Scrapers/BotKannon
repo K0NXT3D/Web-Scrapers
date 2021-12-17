@@ -8,7 +8,7 @@
 #   xterm -e ./file.sh
 #
 clear
-art='banner.txt'
+art='bkbanner.txt'
 input=$art
 while IFS= read -r line
 do
