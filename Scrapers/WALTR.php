@@ -47,17 +47,14 @@ if(isset($_POST["submit"])){
 // Check Data Folder Beforehand - If Exists $filename Display It, If Not Get It.
 function checkForDuplicateFiles() {
     $DATA = "data/";
-    $UserInput = htmlspecialchars($_POST["URL"]);
-    $clutter = array('http://', 'www', 'https://', 'ftp://', 'http://www', 'https://www'); // No Effect
-    $clean = str_replace($clutter, '', $UserInput); // No Effect
-    $URL = trim($clean);
+    $URL = htmlspecialchars($_POST["URL"]);
     $filename = $DATA.$URL;
 
     if (file_exists($filename)) {
         GetBotData(); // Display The Data.
     } else {
         Spawn_WALTR(); // Go Fetch It!
- }
+  }
 }
 
 // Create WALTR - Generate Disposeable Bot File.
