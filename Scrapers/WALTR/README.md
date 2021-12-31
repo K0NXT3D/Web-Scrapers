@@ -3,7 +3,7 @@
 <p>If you're using the WALTR.php file, you can substitute the WALTR.sh code in<br>
   or wait for the updated php file coming in 2022, Happy Holidays!<br>
   <h2>Instructions</h2>
-<p>WALTER.php:<br>
+<p>WALTR.php:<br>
   <b>WALTR - <em>Website Active Link Reporting Tool</em></b><br>
   R. Seaverns 2021 <br>
   Generate a simple web crawler (bot).<br>
