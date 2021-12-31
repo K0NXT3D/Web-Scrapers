@@ -35,4 +35,8 @@
   <p><b><em>Suggestions:</b> proxychains, tor, remote, etc.</em></p>
 
   <p><b>Edit MySQL DB Server Config.</b></p>
+  
+  <p><b>DbViewer.php</b><br>
+  View MySQL Databse WALTR2 Creates.</p>
+  
   <pre>..and they lived happily ever after.<br>The End.</pre>
