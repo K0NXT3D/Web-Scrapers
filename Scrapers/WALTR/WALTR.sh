@@ -27,7 +27,7 @@ case "${flag}" in
         u) TargetURL=${OPTARG};;
     esac
  done
-    # Passing the Password Is Gonna Throw Some Warning Flags.
+    # Passing The Password Is Gonna Throw Some Warning Flags.
     mysql -u$DB_USER -p$DB_PASS -e "CREATE DATABASE $DB_NAME;"
     mysql -u$DB_USER -p$DB_PASS -D$DB_NAME -e "CREATE TABLE URLS (URL VARCHAR(254), LINKS VARCHAR(254), TIMESTAMP VARCHAR(50));"
     # Collect Only The Links From The Target URL.
