@@ -37,6 +37,6 @@
   <p><b>Edit MySQL DB Server Config.</b></p>
   
   <p><b>DbViewer.php</b><br>
-  View MySQL Databse WALTR2 Creates.</p>
+    View MySQL Databse WALTR.sh <em>(WALTR2)</em> Creates.</p>
   
   <pre>..and they lived happily ever after.<br>The End.</pre>
